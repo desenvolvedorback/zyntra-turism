@@ -1,21 +1,67 @@
-MIT License
+LICENCA DE USO RESTRITO - ZYNTRA TURISMO
+==========================================
 
-Copyright (c) 2026 Davi Leonardo 
+Copyright (c) 2026 Davi Leonardo. Todos os direitos reservados.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Este software ("Zyntra Turismo"), incluindo todo o seu codigo-fonte, estrutura,
+design, identidade visual e documentacao, e propriedade exclusiva do titular
+dos direitos autorais identificado acima ("Titular").
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. CONCESSAO DE USO
+   E concedida ao usuario final autorizado pelo Titular uma licenca limitada,
+   pessoal, nao exclusiva e revogavel para USAR o software estritamente na
+   forma em que foi disponibilizado, mediante autorizacao previa e expressa
+   do Titular.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. PROIBICOES
+   Salvo autorizacao previa, expressa e por escrito do Titular, e
+   EXPRESSAMENTE PROIBIDO:
+   a) Modificar, adaptar, traduzir ou criar obras derivadas deste software,
+      no todo ou em parte;
+   b) Reproduzir, copiar, duplicar ou clonar este software, no todo ou em
+      parte, por qualquer meio ou formato;
+   c) Redistribuir, sublicenciar, alugar, emprestar, revender ou de
+      qualquer forma disponibilizar este software a terceiros;
+   d) Fazer engenharia reversa, descompilar ou desmontar o software, exceto
+      nos limites em que tal restricao seja expressamente vedada por lei
+      aplicavel;
+   e) Remover, ocultar ou alterar avisos de direitos autorais, marcas ou
+      identificacao do Titular (incluindo a marca "Zyntra") presentes no
+      software.
+
+3. AUTORIZACAO DE USO
+   Qualquer uso deste software esta condicionado a autorizacao previa e
+   expressa do Titular. A ausencia de autorizacao formal implica na
+   impossibilidade de uso, ainda que o software esteja tecnicamente
+   acessivel.
+
+4. PROPRIEDADE INTELECTUAL
+   Nenhuma disposicao desta licenca transfere ao usuario qualquer direito de
+   propriedade intelectual sobre o software. Todos os direitos nao
+   expressamente concedidos aqui permanecem reservados ao Titular.
+
+5. ISENCAO DE GARANTIAS
+   ESTE SOFTWARE E FORNECIDO "COMO ESTA", SEM GARANTIAS DE QUALQUER TIPO,
+   EXPRESSAS OU IMPLICITAS, INCLUINDO, MAS NAO SE LIMITANDO A, GARANTIAS DE
+   COMERCIALIZACAO, ADEQUACAO A UM PROPOSITO ESPECIFICO E NAO VIOLACAO.
+
+6. LIMITACAO DE RESPONSABILIDADE
+   EM NENHUMA HIPOTESE O TITULAR SERA RESPONSAVEL POR QUALQUER DANO DIRETO,
+   INDIRETO, INCIDENTAL, ESPECIAL OU CONSEQUENCIAL DECORRENTE DO USO OU DA
+   IMPOSSIBILIDADE DE USO DESTE SOFTWARE.
+
+7. RESCISAO
+   Esta licenca e automaticamente rescindida caso o usuario descumpra
+   qualquer uma das condicoes acima, sem prejuizo de outras medidas cabiveis
+   ao Titular.
+
+8. DEPENDENCIAS DE TERCEIROS
+   Este software utiliza bibliotecas de terceiros sob suas proprias
+   licencas (Express.js - licenca MIT; Leaflet.js - licenca BSD-2-Clause;
+   dados de mapas via OpenStreetMap - licenca ODbL). Esta licenca restritiva
+   aplica-se exclusivamente ao codigo, estrutura e conteudo originais do
+   projeto Zyntra Turismo, e nao substitui nem revoga as licencas das
+   dependencias de terceiros listadas.
+
+Para solicitar autorizacao de uso, modificacao ou reproducao, entre em
+contato com o Titular.
