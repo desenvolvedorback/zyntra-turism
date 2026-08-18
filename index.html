@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zyntra Turismo &middot; Roteiros automaticos</title>
+<meta name="color-scheme" content="dark" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <a class="brand-name" href="https://zyntra-zy.netlify.app/" target="_blank" rel="noopener">Zyntra</a>
+    <span class="brand-sub">Turismo</span>
+  </div>
+  <p class="tagline">Roteiros turisticos gerados automaticamente</p>
+</header>
+
+<main class="layout">
+
+  <section class="panel controls" aria-label="Configuracao do roteiro">
+    <form id="plan-form">
+      <label for="city">Cidade</label>
+      <input id="city" name="city" type="text" placeholder="Ex: Lisboa, Curitiba, Roma..." required autocomplete="off" />
+
+      <label for="days">Quantidade de dias</label>
+      <input id="days" name="days" type="number" min="1" max="14" value="3" required />
+
+      <button type="submit" id="submit-btn">Gerar roteiro</button>
+    </form>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <div id="warnings-box" class="warnings-box hidden" role="alert">
+      <h2>Aviso de seguranca</h2>
+      <ul id="warnings-list"></ul>
+    </div>
+
+    <div id="day-tabs" class="day-tabs hidden" aria-label="Dias do roteiro"></div>
+
+    <div id="itinerary" class="itinerary"></div>
+
+    <div id="hotels-box" class="hotels-box hidden">
+      <h2>Hoteis proximos</h2>
+      <ul id="hotels-list"></ul>
+    </div>
+  </section>
+
+  <section class="panel map-panel" aria-label="Mapa do roteiro">
+    <div id="map"></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Zyntra Turismo &mdash; dados de mapas via OpenStreetMap (Nominatim / Overpass)</span>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
