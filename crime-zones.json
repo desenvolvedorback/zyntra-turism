@@ -1,0 +1,12 @@
+{
+  "_readme": "Este arquivo define areas de alto risco por cidade. A chave deve ser o nome da cidade em minusculas e sem acentos (ex: 'sao paulo', 'rio de janeiro'). Cada zona tem: name (nome exibido), lat/lon (centro), radius_m (raio em metros) e level ('alta' ou 'media'). NAO existem dados reais pre-carregados aqui: o sistema nao assume conhecimento de quais bairros sao perigosos. Preencha com fontes oficiais (secretarias de seguranca publica, portais de dados abertos das prefeituras, ISP-SP, etc). O item 'exemplo' abaixo e ficticio, apenas para mostrar o formato, e nunca sera aplicado a uma cidade real.",
+  "exemplo": [
+    {
+      "name": "Zona de exemplo (dado ficticio)",
+      "lat": -23.55052,
+      "lon": -46.633308,
+      "radius_m": 400,
+      "level": "alta"
+    }
+  ]
+}
