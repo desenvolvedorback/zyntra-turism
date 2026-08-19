@@ -117,7 +117,9 @@ async function geocodeCity(city) {
   const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&addressdetails=0&q=${encodeURIComponent(
     city
   )}`;
-  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+  const res = await fetch(url, {
+    headers: { 'User-Agent': USER_AGENT, Accept: 'application/json' },
+  });
   if (!res.ok) throw new Error(`Falha na geocodificacao (HTTP ${res.status})`);
   const data = await res.json();
   if (!data.length) throw new Error('Cidade nao encontrada');
@@ -131,6 +133,17 @@ async function geocodeCity(city) {
     bbox: { south, north, west, east },
   };
 }
+
+// Varios mirrors publicos do Overpass. A instancia principal
+// (overpass-api.de) costuma bloquear/rejeitar (406/429) requisicoes vindas
+// de IPs de datacenter/serverless (Lambda, Vercel, Netlify etc), entao
+// tentamos varias em sequencia ate uma responder.
+const OVERPASS_ENDPOINTS = [
+  'https://overpass-api.de/api/interpreter',
+  'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass.openstreetmap.ru/api/interpreter',
+  'https://overpass.private.coffee/api/interpreter',
+];
 
 async function fetchPois(bbox) {
   const { south, west, north, east } = bbox;
@@ -146,17 +159,45 @@ async function fetchPois(bbox) {
     out body 250;
   `;
 
-  const res = await fetch('https://overpass-api.de/api/interpreter', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': USER_AGENT,
-    },
-    body: 'data=' + encodeURIComponent(query),
-  });
+  let data = null;
+  let lastError = null;
 
-  if (!res.ok) throw new Error(`Falha ao buscar pontos (HTTP ${res.status})`);
-  const data = await res.json();
+  for (const endpoint of OVERPASS_ENDPOINTS) {
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': USER_AGENT,
+        },
+        body: 'data=' + encodeURIComponent(query),
+      });
+
+      if (!res.ok) {
+        const bodySnippet = (await res.text().catch(() => '')).slice(0, 200);
+        lastError = new Error(
+          `Overpass (${endpoint}) respondeu HTTP ${res.status}${
+            bodySnippet ? ' - ' + bodySnippet : ''
+          }`
+        );
+        continue;
+      }
+
+      data = await res.json();
+      break;
+    } catch (err) {
+      lastError = err;
+    }
+  }
+
+  if (!data) {
+    throw new Error(
+      `Falha ao buscar pontos em todos os servidores Overpass disponiveis. Ultimo erro: ${
+        lastError ? lastError.message : 'desconhecido'
+      }`
+    );
+  }
 
   const attractions = [];
   const hotels = [];
